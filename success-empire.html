@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success | Empire Builder</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #d4af37;
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.1em;
+      max-width: 600px;
+    }
+    form {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      background-color: #2c2c2c;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    input[type="submit"] {
+      background-color: #d4af37;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #b8902e;
+    }
+    label {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏗️ Empire Builder Activated!</h1>
+  <p>You’ve unlocked full business creation. Let’s begin by learning more about your vision — and FoundryBot will build it from the ground up.</p>
+
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="idea">Describe your business idea</label>
+    <textarea name="idea" id="idea" rows="4" required></textarea>
+
+    <label for="problemsolved">What problem does it solve, or value does it offer?</label>
+    <textarea name="problemsolved" id="problemsolved" rows="3" required></textarea>
+
+    <label for="audience">Who is your target audience?</label>
+    <textarea name="audience" id="audience" rows="2"></textarea>
+
+    <label for="style">What kind of tone or style should the brand have?</label>
+    <textarea name="style" id="style" rows="2"></textarea>
+
+    <label for="assets">Do you have any existing brand assets or ideas? (Logo, slogan, color preferences)</label>
+    <textarea name="assets" id="assets" rows="2"></textarea>
+
+    <label for="features">What key features would your website or app need?</label>
+    <textarea name="features" id="features" rows="2"></textarea>
+
+    <input type="submit" value="Send to FoundryBot">
+  </form>
+</body>
+</html>
