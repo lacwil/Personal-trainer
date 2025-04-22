@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Launch Kit Dashboard</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    .header h1 {
+      margin: 0;
+      color: #d4af37;
+    }
+    .dashboard-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .card h2 {
+      color: #d4af37;
+      margin-top: 0;
+    }
+    .card p {
+      color: #ccc;
+    }
+    .button {
+      background-color: #d4af37;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #b8902e;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Launch Kit Dashboard</h1>
+    <p>Let's set up your brand and launch your business online.</p>
+  </div>
+
+  <div class="dashboard-container">
+    <div class="card">
+      <h2>Brand Setup</h2>
+      <p>Help us define your business identity. Submit name ideas, industry, and tone to get your logo and brand guide.</p>
+      <button class="button">Start Brand Builder</button>
+    </div>
+
+    <div class="card">
+      <h2>Website Details</h2>
+      <p>Provide what your site needs: domain name ideas, products/services, layout preferences, and payment methods.</p>
+      <button class="button">Submit Site Brief</button>
+    </div>
+
+    <div class="card">
+      <h2>Review & Approve</h2>
+      <p>We’ll deliver your homepage design and landing copy for your approval before going live.</p>
+      <button class="button">View Draft</button>
+    </div>
+  </div>
+</body>
+</html>
