@@ -124,8 +124,7 @@
           `;
         });
       } else if (answer === 'startingScratch') {
-        typeText("Awesome! Let's turn your idea into a real business. Ready to explore the full package?", () => {
-          qBox.innerHTML = `<button class="option-btn" onclick="recommend('empire')">Just an idea — full package</button>`;
+        recommend('empire');
         });
         });
       }
@@ -150,10 +149,14 @@
         } else if (tier === 'empire') {
           continueLink = 'https://buy.stripe.com/test_empirebuilder';
         }
-        qBox.innerHTML = "<button class='option-btn' onclick=\"window.location.href='" + continueLink + "'\">Continue</button>";
+        qBox.innerHTML = "<button class='option-btn' onclick=\"window.location.href='" + continueLink + "'\">Continue</button>" +
+                          "<button class='option-btn' onclick='goBack()'>Back</button>";
       });
     }
-  </script>
+  function goBack() {
+  location.reload();
+}
+</script>
 </body>
 </html>
 
