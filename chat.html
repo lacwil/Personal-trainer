@@ -25,6 +25,12 @@
       border: 1px solid #333;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       overflow-y: auto;
+      transition: all 0.3s ease;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 768px) {
       .chat-box {
@@ -44,9 +50,25 @@
       overflow-y: auto;
       transition: all 0.3s ease-in-out;
       white-space: pre-wrap;
+      scrollbar-width: thin;
+      scrollbar-color: #555 #222;
+    }
+    #message::-webkit-scrollbar {
+      width: 8px;
+    }
+    #message::-webkit-scrollbar-thumb {
+      background-color: #555;
+      border-radius: 4px;
+    }
+    #message::-webkit-scrollbar-track {
+      background: #222;
     }
     .question {
       margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
     .option-btn {
       background-color: #d4af37;
@@ -57,6 +79,7 @@
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     .option-btn:hover {
       background-color: #b8902e;
@@ -73,88 +96,5 @@
       <button class="option-btn" onclick="selectAnswer('startingScratch')">I'm starting from scratch</button>
     </div>
   </div>
-
-  <script>
-    function typeText(text, callback) {
-      const msg = document.getElementById('message');
-      msg.innerHTML = '';
-      let i = 0;
-      function typing() {
-        if (i < text.length) {
-          msg.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(typing, 20);
-        } else if (callback) {
-          callback();
-        }
-      }
-      typing();
-    }
-
-    function selectAnswer(answer) {
-      const qBox = document.getElementById('questionBox');
-      if (answer === 'haveBusiness') {
-        typeText("Great! Do you need help with traffic, ads, and conversions — or a new website as well?", () => {
-          qBox.innerHTML = `
-            <button class="option-btn" onclick="recommend('growth')">Marketing help</button>
-            <button class="option-btn" onclick="recommend('launch')">Website + marketing</button>
-          `;
-        });
-      } else if (answer === 'startingScratch') {
-        typeText("Awesome! Do you already have a business that needs a website, or just an idea you'd like to create?", () => {
-          qBox.innerHTML = `
-            <button class="option-btn" onclick="recommend('launch')">Business idea with website</button>
-            <button class="option-btn" onclick="recommend('empire')">Just an idea — full package</button>
-          `;
-        });
-      }
-    }
-
-    function recommend(tier) {
-      const qBox = document.getElementById('questionBox');
-      if (tier === 'growth') {
-        typeText("You’re best suited for the Growth Spark package — $39/month. Here's what you'll get:\n\n• A custom 30-day content calendar\n• 3 ready-to-use ad creatives\n• Homepage copy optimized to convert\n• A lead magnet strategy\n\nWe'll analyze your site and deliver:\n• Targeted Facebook & Instagram ad campaigns\n• Organic content ideas for Reels, Stories & TikTok\n• Tips to boost Google Business visibility\n• Suggested email campaigns for re-engagement\n\nResults you can expect:\n• Increased traffic within 14 days\n• Higher ad click-through rates\n• More qualified leads captured\n\nLet’s get you growing — here’s your next step.", () => {
-          qBox.innerHTML = `<button class='option-btn' onclick=\"window.location.href='https://buy.stripe.com/test_growthspark'\">Continue to Payment</button>`;
-        });
-      } else if (tier === 'launch') {
-        typeText("You’ll benefit from the Launch Kit — $100 for a custom website, plus $39/month for marketing support. You'll receive:\n\n• Website copy & page structure\n• Domain + hosting help\n• Brand tone guide\n• 1-month social ad content\n\nTypes of websites we build:\n• Landing pages for offers or events\n• Business homepages with service breakdowns\n• Portfolio/showcase sites\n• Booking or lead capture pages\n\nIf you also want an app, we can build:\n• Client-facing service apps\n• Scheduling and booking tools\n• Member login or content access platforms\n• Lead generation apps connected to your CRM\n\nPerfect for turning your business idea into a polished web presence.", () => {
-          qBox.innerHTML = `<button class='option-btn' onclick=\"window.location.href='https://buy.stripe.com/test_launchkit'\">Continue to Payment</button>`;
-        });
-      } else if (tier === 'empire') {
-        typeText(`Empire Builder is your best fit — $100/month for unlimited business builds. Here's how we take your idea and turn it into a live, income-generating business:
-
-STEP 1: IDEA & IDENTITY
-• Help you refine your idea and identify a clear value proposition
-• Generate business names and domain options
-• Create a brand tone, slogan, and logo prompt
-
-STEP 2: ONLINE PRESENCE
-• Build your website or app (from template or custom layout)
-• Register a domain and host it for you
-• Integrate Stripe for online payments
-
-STEP 3: MARKETING & SALES
-• Write homepage and ad copy
-• Create a launch email sequence
-• Generate a content calendar and social ad suggestions
-
-STEP 4: AUTOMATION & GROWTH
-• Set up email marketing and automations
-• Link lead capture to a CRM or Google Sheets
-• Provide guidance for scaling with ads and influencer outreach
-
-Types of businesses we can help launch:
-• eCommerce product brands
-• Service-based businesses
-• Digital downloads or online courses
-• Subscriptions and memberships
-• Local or mobile-first services
-
-Launch as many business ideas as you want — each one built from scratch and ready to make income.`, () => {
-          qBox.innerHTML = `<button class='option-btn' onclick=\"window.location.href='https://buy.stripe.com/test_empirebuilder'\">Continue to Payment</button>`;
-        });
-      }
-    }
-  </script>
 </body>
 </html>
