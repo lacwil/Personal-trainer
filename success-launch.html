@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success | Launch Kit</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #d4af37;
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.1em;
+      max-width: 600px;
+    }
+    form {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      background-color: #2c2c2c;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    input[type="submit"] {
+      background-color: #d4af37;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #b8902e;
+    }
+    label {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Launch Kit Payment Successful!</h1>
+  <p>Let’s get your website built and launched. Please complete the short form below so FoundryBot can begin.</p>
+
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <label for="name">Your Full Name</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="business">What is your business name or idea?</label>
+    <textarea name="business" id="business" rows="2" required></textarea>
+
+    <label for="domain">Do you already have a domain name?</label>
+    <textarea name="domain" id="domain" rows="1"></textarea>
+
+    <label for="domainhelp">If not, suggest some domain name ideas:</label>
+    <textarea name="domainhelp" id="domainhelp" rows="2"></textarea>
+
+    <label for="pages">What pages should be on your site? (e.g. Home, About, Services, Contact)</label>
+    <textarea name="pages" id="pages" rows="2" required></textarea>
+
+    <label for="products">Will you be selling products or services? Describe them briefly.</label>
+    <textarea name="products" id="products" rows="2"></textarea>
+
+    <label for="payments">Do you want to accept payments online? (Yes/No, and preferred method if any)</label>
+    <textarea name="payments" id="payments" rows="2"></textarea>
+
+    <input type="submit" value="Submit Details to FoundryBot">
+  </form>
+</body>
+</html>
