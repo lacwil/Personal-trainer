@@ -44,6 +44,7 @@
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
+      text-decoration: none;
     }
 
     .start-btn:hover {
@@ -55,28 +56,32 @@
 <body>
   <div class="chat-box">
     <h1>Welcome to FoundryBot</h1>
-    <p id="message">Loading your personalized experience...</p>
-    <button class="start-btn" onclick="startChat()">Start Now</button>
+    <p id="message">
+      I'm here to help you build or grow your business.<br><br>
+      Do you already have a business and need help with marketing? Or are we starting from scratch?<br><br>
+      If starting from scratch, do you already have a business that needs web design and marketing, or do you just have an idea you'd like to bring to life?<br><br>
+      FoundryBot will guide you toward the best package for your needs.
+    </p>
+    <a id="payLink" class="start-btn" href="#">Continue</a>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const tier = params.get("tier");
-
-    const message = document.getElementById("message");
-    if (tier === "growth") {
-      message.innerText = "You're on the Growth Spark plan. Let's get your ad strategy, content calendar, and sales copy started!";
-    } else if (tier === "launch") {
-      message.innerText = "You're on the Launch Kit plan. Let's create your website, build your brand, and start converting leads!";
-    } else if (tier === "empire") {
-      message.innerText = "You're on the Empire Builder plan. You can launch unlimited businesses — let's begin your first!";
-    } else {
-      message.innerText = "Welcome to FoundryBot. Let's start building your dream business!";
-    }
-
     function startChat() {
-      window.location.href = "https://chat.openai.com/gpts"; // Placeholder for your custom GPT link
+      const params = new URLSearchParams(window.location.search);
+      const tier = params.get("tier");
+
+      if (tier === "growth") {
+        window.location.href = "https://buy.stripe.com/test_growthspark"; // Replace with real Stripe link
+      } else if (tier === "launch") {
+        window.location.href = "https://buy.stripe.com/test_launchkit"; // Replace with real Stripe link
+      } else if (tier === "empire") {
+        window.location.href = "https://buy.stripe.com/test_empirebuilder"; // Replace with real Stripe link
+      } else {
+        window.location.href = "https://lacwil.github.io/Personal-trainer/pricing.html"; // fallback link
+      }
     }
+
+    document.getElementById("payLink").addEventListener("click", startChat);
   </script>
 </body>
 </html>
