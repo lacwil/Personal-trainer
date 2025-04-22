@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoundryBot Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+    header {
+      background-color: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #2c2c2c;
+    }
+    h1 {
+      color: #d4af37;
+      margin: 0;
+    }
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+    }
+    .status-box, .tool-box {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #d4af37;
+    }
+    textarea {
+      width: 100%;
+      background: #2c2c2c;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #d4af37;
+      border: none;
+      padding: 12px 24px;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #b8902e;
+    }
+    .output {
+      background: #151515;
+      border: 1px dashed #444;
+      padding: 15px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 FoundryBot Dashboard</h1>
+    <p>Manage your automated business creation process</p>
+  </header>
+  <div class="container">
+    <div class="status-box">
+      <h2>🚧 Project Setup Status</h2>
+      <p><strong>Status:</strong> Waiting for submission</p>
+      <p><strong>Build Queue:</strong> 0 in line</p>
+    </div>
+
+    <div class="tool-box">
+      <h2>📩 Submit Business Idea</h2>
+      <form id="idea-form">
+        <label for="idea">Describe your idea:</label>
+        <textarea id="idea" rows="4" required></textarea>
+        <button type="submit">Submit to FoundryBot</button>
+      </form>
+      <div id="response" class="output"></div>
+    </div>
+
+    <div class="tool-box">
+      <h2>🧩 FoundryBot Progress</h2>
+      <p>When submitted, FoundryBot will:</p>
+      <ul>
+        <li>✔️ Generate business name, slogan, domain suggestions</li>
+        <li>✔️ Plan pages & layout</li>
+        <li>✔️ Begin building website or app</li>
+        <li>✔️ Set up marketing & automation flows</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('idea-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const idea = document.getElementById('idea').value;
+      document.getElementById('response').innerText = '🧠 Thinking...';
+
+      // Simulate AI processing (replace this with real API later)
+      setTimeout(() => {
+        document.getElementById('response').innerText = `FoundryBot Response:\n- Name Idea: NovaKits\n- Slogan: "Build Bold. Grow Fast."\n- Suggested Domain: novakits.io\n\nProject is being prepared...`;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
