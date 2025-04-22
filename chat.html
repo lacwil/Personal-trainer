@@ -124,11 +124,9 @@
           `;
         });
       } else if (answer === 'startingScratch') {
-        typeText("Awesome! Do you already have a business that needs a website, or just an idea you'd like to create?", () => {
-          qBox.innerHTML = `
-            <button class="option-btn" onclick="recommend('launch')">Business idea with website</button>
-            <button class="option-btn" onclick="recommend('empire')">Just an idea — full package</button>
-          `;
+        typeText("Awesome! Let's turn your idea into a real business. Ready to explore the full package?", () => {
+          qBox.innerHTML = `<button class="option-btn" onclick="recommend('empire')">Just an idea — full package</button>`;
+        });
         });
       }
     }
@@ -158,3 +156,4 @@
   </script>
 </body>
 </html>
+
