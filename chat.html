@@ -96,5 +96,65 @@
       <button class="option-btn" onclick="selectAnswer('startingScratch')">I'm starting from scratch</button>
     </div>
   </div>
+
+  <script>
+    function typeText(text, callback) {
+      const msg = document.getElementById('message');
+      msg.innerHTML = '';
+      let i = 0;
+      function typing() {
+        if (i < text.length) {
+          msg.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, 15);
+        } else if (callback) {
+          callback();
+        }
+      }
+      typing();
+    }
+
+    function selectAnswer(answer) {
+      const qBox = document.getElementById('questionBox');
+      if (answer === 'haveBusiness') {
+        typeText("Great! Do you need help with traffic, ads, and conversions — or a new website as well?", () => {
+          qBox.innerHTML = `
+            <button class="option-btn" onclick="recommend('growth')">Marketing help</button>
+            <button class="option-btn" onclick="recommend('launch')">Website + marketing</button>
+          `;
+        });
+      } else if (answer === 'startingScratch') {
+        typeText("Awesome! Do you already have a business that needs a website, or just an idea you'd like to create?", () => {
+          qBox.innerHTML = `
+            <button class="option-btn" onclick="recommend('launch')">Business idea with website</button>
+            <button class="option-btn" onclick="recommend('empire')">Just an idea — full package</button>
+          `;
+        });
+      }
+    }
+
+    function recommend(tier) {
+      const qBox = document.getElementById('questionBox');
+      let message = '';
+      if (tier === 'growth') {
+        message = `Growth Spark is a great fit if you already have a business or website and need to boost traffic, conversions, and online sales.\n\nWhat we’ll help you with:\n• Personalized 30-day content calendar\n• 3 scroll-stopping ad creatives\n• Homepage copy designed to convert\n• Lead magnet ideas to grow your list\n\nYou’ll get support across:\n• Facebook, Instagram, TikTok, Google\n• SEO and Google Business tools\n• Email marketing sequences and follow-ups\n\nA powerful system to help your brand reach more people and convert better.`;
+      } else if (tier === 'launch') {
+        message = `The Launch Kit is perfect for new or growing businesses.\n\nWe’ll build your brand presence from the ground up:\n• Copy for your homepage and landing pages\n• Help registering your domain and setting up hosting\n• Brand tone, colors, and layout planning\n\nWe can create websites like:\n• Landing pages\n• Portfolios\n• Booking pages\n• Business info pages\n\nPlus, we can support app-style functionality if needed. Your vision becomes a real online experience.`;
+      } else if (tier === 'empire') {
+        message = `Empire Builder is your best fit — for unlimited business builds. Here's how we take your idea and turn it into a live, income-generating business:\n\nFirst we take your Idea & create your Identity\n• We will refine your idea and identify a clear value proposition\n• Generate business names and domain options\n• Create a brand tone, slogan, and logo prompt\n\nThen we will create your ONLINE PRESENCE\n• By Building your website or app (from template or custom layout)\n• Register a domain and host it for you\n• Integrate Stripe for online payments\n\nNext, we’ll set you up with MARKETING & SALES\n• We'll write homepage and ad copy\n• Craft a launch email sequence\n• Build your content calendar and ad ideas\n\nAnd finally, we AUTOMATE & SCALE\n• Email marketing automations\n• CRM or Google Sheets integration\n• Ads and influencer growth strategies\n\nWe support all kinds of business ideas — and we’ll help you build, launch, and grow.`;
+      }
+      typeText(message, () => {
+        let continueLink = '';
+        if (tier === 'growth') {
+          continueLink = 'https://buy.stripe.com/test_growthspark';
+        } else if (tier === 'launch') {
+          continueLink = 'https://buy.stripe.com/test_launchkit';
+        } else if (tier === 'empire') {
+          continueLink = 'https://buy.stripe.com/test_empirebuilder';
+        }
+        qBox.innerHTML = `<button class='option-btn' onclick=\"window.location.href='${continueLink}'\">Continue</button>`;
+      });
+    }
+  </script>
 </body>
 </html>
