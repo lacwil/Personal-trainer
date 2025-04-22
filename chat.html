@@ -115,19 +115,18 @@
     }
 
     function selectAnswer(answer) {
-      const qBox = document.getElementById('questionBox');
-      if (answer === 'haveBusiness') {
-        typeText("Great! Do you need help with traffic, ads, and conversions — or a new website as well?", () => {
-          qBox.innerHTML = `
-            <button class="option-btn" onclick="recommend('growth')">Marketing help</button>
-            <button class="option-btn" onclick="recommend('launch')">Website + marketing</button>
-          `;
-        });
-      } else if (answer === 'startingScratch') {
-  recommend('empire');
+  const qBox = document.getElementById('questionBox');
+  if (answer === 'haveBusiness') {
+    typeText("Great! Do you need help with traffic, ads, and conversions — or a new website as well?", () => {
+      qBox.innerHTML = `
+        <button class="option-btn" onclick="recommend('growth')">Marketing help</button>
+        <button class="option-btn" onclick="recommend('launch')">Website + marketing</button>
+      `;
+    });
+  } else if (answer === 'startingScratch') {
+    recommend('empire');
+  }
 }
-      }
-    }
 
     function recommend(tier) {
       const qBox = document.getElementById('questionBox');
