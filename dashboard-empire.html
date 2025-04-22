@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empire Builder Dashboard</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    .header h1 {
+      margin: 0;
+      color: #d4af37;
+    }
+    .dashboard-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .card h2 {
+      color: #d4af37;
+      margin-top: 0;
+    }
+    .card p {
+      color: #ccc;
+    }
+    .button {
+      background-color: #d4af37;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #b8902e;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Empire Builder Dashboard</h1>
+    <p>You're all in! Let's build your business from idea to income.</p>
+  </div>
+
+  <div class="dashboard-container">
+    <div class="card">
+      <h2>Idea to Identity</h2>
+      <p>Refine your business idea, generate name and slogan, design brand logo and tone.</p>
+      <button class="button">Create Brand Identity</button>
+    </div>
+
+    <div class="card">
+      <h2>Website or App Builder</h2>
+      <p>Pick from templates or request custom design for web or mobile app.</p>
+      <button class="button">Launch Builder</button>
+    </div>
+
+    <div class="card">
+      <h2>Hosting & Deployment</h2>
+      <p>Register a domain and automatically deploy your new site or app online.</p>
+      <button class="button">Setup Hosting</button>
+    </div>
+
+    <div class="card">
+      <h2>Monetization Tools</h2>
+      <p>Enable Stripe payments, sell products or services, and track revenue.</p>
+      <button class="button">Configure Payments</button>
+    </div>
+
+    <div class="card">
+      <h2>Marketing & Launch</h2>
+      <p>Build your email list, generate launch assets and start advertising right away.</p>
+      <button class="button">Start Marketing</button>
+    </div>
+  </div>
+</body>
+</html>
