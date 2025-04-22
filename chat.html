@@ -29,8 +29,9 @@
       font-family: 'Playfair Display', serif;
       text-align: center;
     }
-    p {
-      margin-bottom: 20px;
+    #message {
+      min-height: 100px;
+      transition: all 0.3s ease-in-out;
     }
     .question {
       margin-top: 20px;
@@ -54,44 +55,63 @@
 <body>
   <div class="chat-box">
     <h1>Welcome to FoundryBot</h1>
-    <p id="message">Let's figure out how I can best help you. Do you already have a business?</p>
+    <p id="message">Hi there! I'm FoundryBot 👋 Let's build your business. Do you already have a business or are we starting from scratch?</p>
     <div class="question" id="questionBox">
-      <button class="option-btn" onclick="selectAnswer('haveBusiness')">Yes, I already have a business</button>
-      <button class="option-btn" onclick="selectAnswer('startingScratch')">No, I’m starting from scratch</button>
+      <button class="option-btn" onclick="selectAnswer('haveBusiness')">I already have a business</button>
+      <button class="option-btn" onclick="selectAnswer('startingScratch')">I'm starting from scratch</button>
     </div>
   </div>
 
   <script>
-    function selectAnswer(answer) {
+    function typeText(text, callback) {
       const msg = document.getElementById('message');
+      msg.innerHTML = '';
+      let i = 0;
+      function typing() {
+        if (i < text.length) {
+          msg.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, 20);
+        } else if (callback) {
+          callback();
+        }
+      }
+      typing();
+    }
+
+    function selectAnswer(answer) {
       const qBox = document.getElementById('questionBox');
       if (answer === 'haveBusiness') {
-        msg.innerText = "Got it! Do you need help with traffic, ads, and conversions — or a new website as well?";
-        qBox.innerHTML = `
-          <button class="option-btn" onclick="recommend('growth')">I need help with marketing</button>
-          <button class="option-btn" onclick="recommend('launch')">I need a website + marketing</button>
-        `;
+        typeText("Great! Do you need help with traffic, ads, and conversions — or a new website as well?", () => {
+          qBox.innerHTML = `
+            <button class="option-btn" onclick="recommend('growth')">Marketing help</button>
+            <button class="option-btn" onclick="recommend('launch')">Website + marketing</button>
+          `;
+        });
       } else if (answer === 'startingScratch') {
-        msg.innerText = "Awesome — do you already have a business to build a site for, or just an idea you'd like to create?";
-        qBox.innerHTML = `
-          <button class="option-btn" onclick="recommend('launch')">I have a business idea and need a website</button>
-          <button class="option-btn" onclick="recommend('empire')">I just have an idea and want the full package</button>
-        `;
+        typeText("Awesome! Do you already have a business that needs a website, or just an idea you'd like to create?", () => {
+          qBox.innerHTML = `
+            <button class="option-btn" onclick="recommend('launch')">Business idea with website</button>
+            <button class="option-btn" onclick="recommend('empire')">Just an idea — full package</button>
+          `;
+        });
       }
     }
 
     function recommend(tier) {
-      let msg = document.getElementById('message');
-      let qBox = document.getElementById('questionBox');
+      const qBox = document.getElementById('questionBox');
       if (tier === 'growth') {
-        msg.innerText = "You’re best suited for the Growth Spark package — $39/month for ad strategy, content help, and conversions.";
-        qBox.innerHTML = `<button class='option-btn' onclick="window.location.href='https://buy.stripe.com/test_growthspark'">Continue to Payment</button>`;
+        typeText("You’re best suited for the Growth Spark package — $39/month for ad strategy, content help, and conversions.", () => {
+          qBox.innerHTML = `<button class='option-btn' onclick=\"window.location.href='https://buy.stripe.com/test_growthspark'\">Continue to Payment</button>`;
+        });
       } else if (tier === 'launch') {
-        msg.innerText = "You’ll benefit from the Launch Kit — $100 for a custom site plus ongoing marketing at $39/month.";
-        qBox.innerHTML = `<button class='option-btn' onclick="window.location.href='https://buy.stripe.com/test_launchkit'">Continue to Payment</button>`;
+        typeText("You’ll benefit from the Launch Kit — $100 for a custom site plus ongoing marketing at $39/month.", () => {
+          qBox.innerHTML = `<button class='option-btn' onclick=\"window.location.href='https://buy.stripe.com/test_launchkit'\">Continue to Payment</button>`;
+        });
       } else if (tier === 'empire') {
-        msg.innerText = "Empire Builder is your best fit — $100/month for unlimited business creation, sites, apps, and marketing.";
-        qBox.innerHTML = `<button class='option-btn' onclick="window.location.href='https://buy.stripe.com/test_empirebuilder'">Continue to Payment</button>`;
+        typeText("Empire Builder is your best fit — $100/month for unlimited business creation, websites, apps, and marketing.", () => {
+          qBox.innerHTML = `<button class='option-btn' onclick=\"window.location.href='https://buy.stripe.com/test_empirebuilder'\">Continue to Payment</button>`;
+        });
       }
     }
   </script>
